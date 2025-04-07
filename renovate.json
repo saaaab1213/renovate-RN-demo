@@ -3,7 +3,6 @@
   "extends": [
     "config:base"
   ],
-  "schedule": ["after 9am and before 5pm on Wednesday, Thursday, Friday"],
   "timezone": "America/New_York", 
   "prHourlyLimit": 2,
   "prConcurrentLimit": 4,
@@ -42,14 +41,7 @@
       ],
       "matchUpdateTypes": ["minor", "patch"],
       "labels": ["dependencies", "core-dependencies"],
-      "reviewers": ["CODEOWNERS"],
-      "postUpgradeTasks": {
-        "commands": [
-          "yarn install",
-          "cd ios && pod install"
-        ],
-        "fileFilters": ["package.json", "yarn.lock", "ios/Podfile.lock"]
-      }
+      "reviewers": ["CODEOWNERS"]
     },
     {
       "description": "Group UI dependencies",
@@ -83,14 +75,7 @@
         "rn-emoji-keyboard"
       ],
       "matchUpdateTypes": ["minor", "patch"],
-      "labels": ["dependencies", "ui-dependencies"],
-      "postUpgradeTasks": {
-        "commands": [
-          "yarn install",
-          "cd ios && pod install"
-        ],
-        "fileFilters": ["package.json", "yarn.lock", "ios/Podfile.lock"]
-      }
+      "labels": ["dependencies", "ui-dependencies"]
     },
     {
       "description": "Group Utility dependencies",
@@ -113,13 +98,7 @@
         "@tanstack/react-query-persist-client"
       ],
       "matchUpdateTypes": ["minor", "patch"],
-      "labels": ["dependencies", "utility-dependencies"],
-      "postUpgradeTasks": {
-        "commands": [
-          "yarn install"
-        ],
-        "fileFilters": ["package.json", "yarn.lock"]
-      }
+      "labels": ["dependencies", "utility-dependencies"]
     },
     {
       "description": "Critical dependencies with security implications",
@@ -142,14 +121,7 @@
       "matchUpdateTypes": ["major", "minor", "patch"],
       "labels": ["dependencies", "critical-dependencies", "security"],
       "prPriority": 1,
-      "platformAutomerge": false,
-      "postUpgradeTasks": {
-        "commands": [
-          "yarn install",
-          "cd ios && pod install"
-        ],
-        "fileFilters": ["package.json", "yarn.lock", "ios/Podfile.lock"]
-      }
+      "platformAutomerge": false
     },
     {
       "description": "Analytics and tracking dependencies",
@@ -163,14 +135,7 @@
         "@react-native-google-signin/google-signin"
       ],
       "matchUpdateTypes": ["minor", "patch"],
-      "labels": ["dependencies", "analytics-dependencies"],
-      "postUpgradeTasks": {
-        "commands": [
-          "yarn install",
-          "cd ios && pod install"
-        ],
-        "fileFilters": ["package.json", "yarn.lock", "ios/Podfile.lock"]
-      }
+      "labels": ["dependencies", "analytics-dependencies"]
     },
     {
       "description": "Skip React Native core updates (handled manually)",
@@ -189,14 +154,7 @@
       "groupName": "expo dependencies",
       "matchPackagePatterns": ["^expo"],
       "matchUpdateTypes": ["minor", "patch"],
-      "labels": ["dependencies", "expo-dependencies"],
-      "postUpgradeTasks": {
-        "commands": [
-          "yarn install",
-          "cd ios && pod install"
-        ],
-        "fileFilters": ["package.json", "yarn.lock", "ios/Podfile.lock"]
-      }
+      "labels": ["dependencies", "expo-dependencies"]
     },
     {
       "description": "Security patches bypass version constraints",
@@ -207,14 +165,7 @@
   ],
   "lockFileMaintenance": {
     "enabled": true,
-    "schedule": ["before 5am on Monday"],
-    "postUpgradeTasks": {
-      "commands": [
-        "yarn install",
-        "cd ios && pod install"
-      ],
-      "fileFilters": ["package.json", "yarn.lock", "ios/Podfile.lock"]
-    }
+    "schedule": ["before 5am on Monday"]
   },
   "vulnerabilityAlerts": {
     "labels": ["security"]
