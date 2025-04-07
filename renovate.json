@@ -1,6 +1,241 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:base"
+  ],
+  "schedule": ["after 9am and before 5pm on Wednesday, Thursday, Friday"],
+  "timezone": "America/New_York", 
+  "prHourlyLimit": 2,
+  "prConcurrentLimit": 4,
+  "labels": ["dependencies"],
+  "reviewersFromCodeOwners": true,
+  "rangeStrategy": "pin",
+  "packageRules": [
+    {
+      "description": "Use conservative update strategy (N-1)",
+      "matchPackagePatterns": ["*"],
+      "rangeStrategy": "bump",
+      "excludePackagePatterns": ["^@types/"]
+    },
+    {
+      "description": "Group Core dependencies",
+      "groupName": "core dependencies",
+      "matchPackagePatterns": [
+        "^react$",
+        "^react-native$",
+        "^@react-native",
+        "^@react-navigation"
+      ],
+      "matchPackageNames": [
+        "react",
+        "react-native",
+        "@react-native-async-storage/async-storage",
+        "@react-native-masked-view/masked-view",
+        "@react-native-picker/picker",
+        "@react-navigation/bottom-tabs",
+        "@react-navigation/drawer",
+        "@react-navigation/native",
+        "@react-navigation/native-stack",
+        "@react-navigation/stack",
+        "react-native-safe-area-context",
+        "react-native-screens"
+      ],
+      "matchUpdateTypes": ["minor", "patch"],
+      "labels": ["dependencies", "core-dependencies"],
+      "reviewers": ["CODEOWNERS"],
+      "postUpgradeTasks": {
+        "commands": [
+          "yarn install",
+          "cd ios && pod install"
+        ],
+        "fileFilters": ["package.json", "yarn.lock", "ios/Podfile.lock"]
+      }
+    },
+    {
+      "description": "Group UI dependencies",
+      "groupName": "ui dependencies",
+      "matchPackageNames": [
+        "@fawazahmed/react-native-read-more",
+        "@gorhom/bottom-sheet",
+        "@gorhom/portal",
+        "@shopify/flash-list",
+        "@shopify/react-native-skia",
+        "color",
+        "expo-haptics",
+        "expo-image",
+        "expo-image-manipulator",
+        "expo-image-picker",
+        "expo-status-bar",
+        "lottie-react-native",
+        "react-content-loader",
+        "react-native-calendars",
+        "react-native-circular-progress",
+        "react-native-gesture-handler", 
+        "react-native-linear-gradient",
+        "react-native-modal",
+        "react-native-modal-datetime-picker",
+        "react-native-progress",
+        "react-native-reanimated",
+        "react-native-reanimated-carousel",
+        "react-native-render-html",
+        "react-native-svg",
+        "react-native-video",
+        "rn-emoji-keyboard"
+      ],
+      "matchUpdateTypes": ["minor", "patch"],
+      "labels": ["dependencies", "ui-dependencies"],
+      "postUpgradeTasks": {
+        "commands": [
+          "yarn install",
+          "cd ios && pod install"
+        ],
+        "fileFilters": ["package.json", "yarn.lock", "ios/Podfile.lock"]
+      }
+    },
+    {
+      "description": "Group Utility dependencies",
+      "groupName": "utility dependencies",
+      "matchPackageNames": [
+        "lodash",
+        "date-fns",
+        "emoji-regex",
+        "i18next",
+        "react-i18next",
+        "quick-lru",
+        "react-native-mmkv",
+        "react-redux",
+        "redux",
+        "redux-persist",
+        "redux-thunk",
+        "react-native-url-polyfill",
+        "@tanstack/react-query",
+        "@tanstack/query-sync-storage-persister",
+        "@tanstack/react-query-persist-client"
+      ],
+      "matchUpdateTypes": ["minor", "patch"],
+      "labels": ["dependencies", "utility-dependencies"],
+      "postUpgradeTasks": {
+        "commands": [
+          "yarn install"
+        ],
+        "fileFilters": ["package.json", "yarn.lock"]
+      }
+    },
+    {
+      "description": "Critical dependencies with security implications",
+      "groupName": "critical dependencies",
+      "matchPackageNames": [
+        "axios",
+        "axios-better-stacktrace",
+        "@react-native-firebase/app",
+        "@react-native-firebase/analytics",
+        "@react-native-firebase/auth",
+        "@react-native-firebase/perf",
+        "@bugsnag/react-native",
+        "@bugsnag/plugin-react-navigation",
+        "react-native-permissions",
+        "expo-local-authentication",
+        "@invertase/react-native-apple-authentication",
+        "react-native-webview",
+        "react-native-config"
+      ],
+      "matchUpdateTypes": ["major", "minor", "patch"],
+      "labels": ["dependencies", "critical-dependencies", "security"],
+      "prPriority": 1,
+      "platformAutomerge": false,
+      "postUpgradeTasks": {
+        "commands": [
+          "yarn install",
+          "cd ios && pod install"
+        ],
+        "fileFilters": ["package.json", "yarn.lock", "ios/Podfile.lock"]
+      }
+    },
+    {
+      "description": "Analytics and tracking dependencies",
+      "groupName": "analytics dependencies",
+      "matchPackageNames": [
+        "@amplitude/experiment-react-native-client",
+        "@amplitude/react-native",
+        "@intercom/intercom-react-native",
+        "react-native-adjust",
+        "react-native-fbsdk-next",
+        "@react-native-google-signin/google-signin"
+      ],
+      "matchUpdateTypes": ["minor", "patch"],
+      "labels": ["dependencies", "analytics-dependencies"],
+      "postUpgradeTasks": {
+        "commands": [
+          "yarn install",
+          "cd ios && pod install"
+        ],
+        "fileFilters": ["package.json", "yarn.lock", "ios/Podfile.lock"]
+      }
+    },
+    {
+      "description": "Skip React Native core updates (handled manually)",
+      "matchPackageNames": ["react-native"],
+      "matchUpdateTypes": ["major","minor"],
+      "enabled": false
+    },
+    {
+      "description": "Automerge non-major dev dependencies",
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    },
+    {
+      "description": "Group Expo dependencies",
+      "groupName": "expo dependencies",
+      "matchPackagePatterns": ["^expo"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "labels": ["dependencies", "expo-dependencies"],
+      "postUpgradeTasks": {
+        "commands": [
+          "yarn install",
+          "cd ios && pod install"
+        ],
+        "fileFilters": ["package.json", "yarn.lock", "ios/Podfile.lock"]
+      }
+    },
+    {
+      "description": "Security patches bypass version constraints",
+      "matchPackagePatterns": ["*"],
+      "matchUpdateTypes": ["patch"],
+      "matchCategories": ["security"]
+    }
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["before 5am on Monday"],
+    "postUpgradeTasks": {
+      "commands": [
+        "yarn install",
+        "cd ios && pod install"
+      ],
+      "fileFilters": ["package.json", "yarn.lock", "ios/Podfile.lock"]
+    }
+  },
+  "vulnerabilityAlerts": {
+    "labels": ["security"]
+  },
+  "dependencyDashboard": true,
+  "dependencyDashboardTitle": "Dependency Update Dashboard",
+  "separateMajorMinor": true,
+  "separateMinorPatch": false,
+  "commitMessageAction": "Update",
+  "commitMessageTopic": "dependency {{depName}}",
+  "commitMessagePrefix": "chore(deps):",
+  "prBodyColumns": [
+    "Package",
+    "Type",
+    "Update",
+    "Change",
+    "Pending"
+  ],
+  "prBodyNotes": [
+    "This PR was created by Renovate Bot according to our dependency management policy.",
+    "Please test this update locally before approving.",
+    "⚠️ Remember to run 'yarn install' and 'pod install' after merging."
   ]
 }
