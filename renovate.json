@@ -3,7 +3,6 @@
   "extends": [
     "config:base"
   ],
-  "schedule": ["after 9am and before 5pm on Wednesday, Thursday, Friday"],
   "timezone": "America/New_York", 
   "prHourlyLimit": 2,
   "prConcurrentLimit": 4,
