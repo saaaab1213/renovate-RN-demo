@@ -26,37 +26,34 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@amplitude/analytics-connector@npm:1.4.3":
-  version: 1.4.3
-  resolution: "@amplitude/analytics-connector@npm:1.4.3"
-  dependencies:
-    "@amplitude/ua-parser-js": "npm:0.7.31"
-  checksum: 10c0/8170bc8247e83dfbc48d0b33485e74c2821fc176de1d8ec1c3bbd2ad9c3b56c24cb15e80105fc03a3c96b118bdad4ddaf63fd8849dda59178cbfd94cc53dacff
+"@amplitude/analytics-connector@npm:^1.4.7":
+  version: 1.6.4
+  resolution: "@amplitude/analytics-connector@npm:1.6.4"
+  checksum: 10c0/b084180029e48c011fffc47301462fc2db06830421348ca5fdf235fb6d30e4c0309161eb4392350bc00ab2bf7537306f18b9dfffa9998f70db2b6f31470f0e88
   languageName: node
   linkType: hard
 
-"@amplitude/experiment-react-native-client@npm:1.0.0":
-  version: 1.0.0
-  resolution: "@amplitude/experiment-react-native-client@npm:1.0.0"
+"@amplitude/experiment-core@npm:^0.11.0":
+  version: 0.11.1
+  resolution: "@amplitude/experiment-core@npm:0.11.1"
   dependencies:
-    "@amplitude/analytics-connector": "npm:1.4.3"
-    "@amplitude/experiment-react-native-client": "npm:^0.7.2"
-    "@react-native-async-storage/async-storage": "npm:1.17.6"
-    unfetch: "npm:4.2.0"
-  peerDependencies:
-    react: "*"
-    react-native: "*"
-  checksum: 10c0/381ba516a076ed8e7ccd8f4b300533d5fcfcd5cce0d708b43f99ad7fe25f2f17343a63d731168909d09ebb2a4ef34740ff49403facfca6a0dd16de59645ef72c
+    js-base64: "npm:^3.7.5"
+  checksum: 10c0/87da9fc6eafae6185f13b902ddce4a5bb746ec31553ffb0bd9290cb07b160389211bfb14b09df60dcedeef1476e93f2592d13c3c2f3c0d2842f1d7a8ff8a64f4
   languageName: node
   linkType: hard
 
-"@amplitude/experiment-react-native-client@npm:^0.7.2":
-  version: 0.7.3
-  resolution: "@amplitude/experiment-react-native-client@npm:0.7.3"
+"@amplitude/experiment-react-native-client@npm:1.8.0":
+  version: 1.8.0
+  resolution: "@amplitude/experiment-react-native-client@npm:1.8.0"
+  dependencies:
+    "@amplitude/analytics-connector": "npm:^1.4.7"
+    "@amplitude/experiment-core": "npm:^0.11.0"
+    "@react-native-async-storage/async-storage": "npm:^1.17.6"
+    unfetch: "npm:^4.2.0"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 10c0/a0d390827cc01e73ef07c0953044ec70ae69b669be469cd4580c03fff0f83892a6104dd73ed29a9a7b3b8b83e5896ba4ce77464cd74dabb9e3fee78c5eb7b7a1
+  checksum: 10c0/8b643465679b9e186645456076e050ce8bbd343f4752965af4250c0851195d5d08c857c67b126e0545a18f1f86db6c5a3e9fe55b2f8422033e1b165b414d0439
   languageName: node
   linkType: hard
 
@@ -67,13 +64,6 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: 10c0/f907a04529ae4f2f5a15d197961ebe60d9bc02d9cfb1c6a9f50e8b65d922aec9933256923a4f05a2257353826b59f5b0a7bbfd515e4a171b2aaa6810c81d83a3
-  languageName: node
-  linkType: hard
-
-"@amplitude/ua-parser-js@npm:0.7.31":
-  version: 0.7.31
-  resolution: "@amplitude/ua-parser-js@npm:0.7.31"
-  checksum: 10c0/630fce04c410eccd03d0f289a7cd1a95a31c4704d65649c60d730cc060a7026256e4d5a865b8920897d3541a837f3ee12626139e1cf14aef122797090a0ea71e
   languageName: node
   linkType: hard
 
@@ -2896,15 +2886,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@intercom/intercom-react-native@npm:8.3.0":
-  version: 8.3.0
-  resolution: "@intercom/intercom-react-native@npm:8.3.0"
+"@intercom/intercom-react-native@npm:8.8.0":
+  version: 8.8.0
+  resolution: "@intercom/intercom-react-native@npm:8.8.0"
   dependencies:
     node-fetch: "npm:^2.6.1"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 10c0/07f135abee49661b00dbd374eafc0c73cd1ed0e1f89ca402040e84dbbb0538f117d7e5a1e11763aeb354385df6a440f935e1bdc21e63452c5d8e355ea52d645d
+  checksum: 10c0/c140159f0de6199aa04142464b7ada69543c6c8b8b8da9a4a824150e6a5c65371bba3196b394661b66e65f311f62538a007d7717ccb07aee171486a32634eae0
   languageName: node
   linkType: hard
 
@@ -3562,14 +3552,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-async-storage/async-storage@npm:1.17.6":
-  version: 1.17.6
-  resolution: "@react-native-async-storage/async-storage@npm:1.17.6"
+"@react-native-async-storage/async-storage@npm:^1.17.6":
+  version: 1.24.0
+  resolution: "@react-native-async-storage/async-storage@npm:1.24.0"
   dependencies:
     merge-options: "npm:^3.0.4"
   peerDependencies:
-    react-native: ^0.0.0-0 || 0.60 - 0.68 || 1000.0.0
-  checksum: 10c0/6dcdb389c0bac8bd5d75150a46e46f712e2329206656a9ec1ec40485e1c2bc8990a5f2c16476fc0ea8017c6a748442ef0ca7ef3808b179c79fa636e0747f4ea5
+    react-native: ^0.0.0-0 || >=0.60 <1.0
+  checksum: 10c0/cad2098ef84251f2ab8ebc07b750e585a20ac7ca07f26e5441e957a76f2b66f01d10ef5fbddb63d675431377b31beb5208548093e1eb17d262d2184b51133f4d
   languageName: node
   linkType: hard
 
@@ -11867,6 +11857,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"js-base64@npm:^3.7.5":
+  version: 3.7.8
+  resolution: "js-base64@npm:3.7.8"
+  checksum: 10c0/a4452a7e7f32b0ef568a344157efec00c14593bbb1cf0c113f008dddff7ec515b35147af0cd70a7735adb69a2a2bdee921adffea2ea465e2c856ba50d649b11e
+  languageName: node
+  linkType: hard
+
 "js-tokens@npm:^3.0.0 || ^4.0.0, js-tokens@npm:^4.0.0":
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0"
@@ -14661,10 +14658,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-adjust@npm:5.1.0":
-  version: 5.1.0
-  resolution: "react-native-adjust@npm:5.1.0"
-  checksum: 10c0/0b1d322a7ea0268f6343a29636b9081a2ac8fbede72c74be439bfe1d12362f833305b4136b6de1d596a1f0649332daeec6f8ea61d9b9d7118dabc99e1e5693be
+"react-native-adjust@npm:5.6.0":
+  version: 5.6.0
+  resolution: "react-native-adjust@npm:5.6.0"
+  checksum: 10c0/5c3b203f415fe7574c557d0fcc761954d3ac573e1fe3487c8fe5521aec30b0f4d62bfc64deb5ec4a1e2d7795d3689d1981ee33d515d8462dfd06561bc9124a43
   languageName: node
   linkType: hard
 
@@ -14848,16 +14845,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-fbsdk-next@npm:13.4.1":
-  version: 13.4.1
-  resolution: "react-native-fbsdk-next@npm:13.4.1"
+"react-native-fbsdk-next@npm:13.4.3":
+  version: 13.4.3
+  resolution: "react-native-fbsdk-next@npm:13.4.3"
   peerDependencies:
     expo: ">=47.0.0"
     react-native: ">=0.63.3"
   peerDependenciesMeta:
     expo:
       optional: true
-  checksum: 10c0/f38b8d360986e47dede9b5bcd6166e750f93c4f6d38b85013499ce6fa7d0a181b20cc009b6a05167930df0f56ed8dc79223f9cc4bee9969c8d928405fc750576
+  checksum: 10c0/58ec2a0e9ff3befe0d17f5ddd93986fd7cba7afd114fc6f0fba62063276cad4866ea7736e0d83bfc7ca75a6164a7092f673d99b3b4300c9ae53892f2935c30bb
   languageName: node
   linkType: hard
 
@@ -15675,7 +15672,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "renovaterndemo@workspace:."
   dependencies:
-    "@amplitude/experiment-react-native-client": "npm:1.0.0"
+    "@amplitude/experiment-react-native-client": "npm:1.8.0"
     "@amplitude/react-native": "npm:^2.17.3"
     "@babel/core": "npm:^7.26.10"
     "@babel/runtime": "npm:^7.27.0"
@@ -15689,7 +15686,7 @@ __metadata:
     "@fawazahmed/react-native-read-more": "npm:^3.0.4"
     "@gorhom/bottom-sheet": "npm:5.1.2"
     "@gorhom/portal": "npm:^1.0.14"
-    "@intercom/intercom-react-native": "npm:8.3.0"
+    "@intercom/intercom-react-native": "npm:8.8.0"
     "@invertase/react-native-apple-authentication": "npm:^2.4.0"
     "@paired/eslint-plugin": "link:./utility/eslint"
     "@react-native-async-storage/async-storage": "npm:^2.1.2"
@@ -15789,7 +15786,7 @@ __metadata:
     react-content-loader: "npm:^7.0.2"
     react-i18next: "npm:^15.4.1"
     react-native: "npm:^0.77.2"
-    react-native-adjust: "npm:5.1.0"
+    react-native-adjust: "npm:5.6.0"
     react-native-blob-util: "npm:0.21.2"
     react-native-bootsplash: "npm:6.3.4"
     react-native-bundle-visualizer: "https://github.com/IjzerenHein/react-native-bundle-visualizer.git#fix-remove-minify-false"
@@ -15800,7 +15797,7 @@ __metadata:
     react-native-config: "npm:^1.5.5"
     react-native-device-info: "npm:^11.1.0"
     react-native-dotenv: "npm:^3.4.11"
-    react-native-fbsdk-next: "npm:13.4.1"
+    react-native-fbsdk-next: "npm:13.4.3"
     react-native-flash-message: "npm:^0.4.2"
     react-native-gesture-handler: "npm:2.24.0"
     react-native-json-tree: "npm:^1.5.0"
@@ -17979,7 +17976,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unfetch@npm:4.2.0":
+"unfetch@npm:^4.2.0":
   version: 4.2.0
   resolution: "unfetch@npm:4.2.0"
   checksum: 10c0/a5c0a896a6f09f278b868075aea65652ad185db30e827cb7df45826fe5ab850124bf9c44c4dafca4bf0c55a0844b17031e8243467fcc38dd7a7d435007151f1b
